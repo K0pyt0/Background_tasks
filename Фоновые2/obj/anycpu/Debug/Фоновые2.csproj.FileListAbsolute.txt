@@ -1,0 +1,6 @@
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/bin/Debug/Фоновые2.exe
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/bin/Debug/Фоновые2.pdb
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/obj/anycpu/Debug/Фоновые2.csproj.AssemblyReference.cache
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/obj/anycpu/Debug/Фоновые2.csproj.CoreCompileInputs.cache
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/obj/anycpu/Debug/Фоновые2.exe
+/Users/K0pyt0/Documents/LIT/OOP/Фоновые/Фоновые2/obj/anycpu/Debug/Фоновые2.pdb
