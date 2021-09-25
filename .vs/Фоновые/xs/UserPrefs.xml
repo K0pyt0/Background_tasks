@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{A0CD944F-4BB2-48F1-A755-C2B05DBA9D3D}|Default">
+  <MonoDevelop.Ide.ItemProperties.Фоновые2 FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Фоновые2/Program.cs">
+    <Files>
+      <File FileName="Фоновые/Program.cs" Line="12" Column="21" />
+      <File FileName="Фоновые2/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Фоновые" expanded="True">
+            <Node name="Фоновые1.1" expanded="True" />
+            <Node name="Фоновые2" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Фоновые1.1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
