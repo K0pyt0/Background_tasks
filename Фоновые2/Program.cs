@@ -9,19 +9,23 @@ namespace Фоновые2
             double x = double.Parse(Console.ReadLine());
             double y = double.Parse(Console.ReadLine());
             double r1 = 1;
-            double r2 = 2;
+            double r2 = 0.3;
             double ans;
 
             if (y > 0)
             {
-                if (Math.Pow(x, 2) + Math.Pow(x, 2) >= Math.Pow(r1, 2))
+                if (Math.Pow(x, 2) + Math.Pow(x, 2) <= Math.Pow(r2, 2))   
                 {
-                    if (Math.Pow(x, 2) + Math.Pow(x, 2) <= Math.Pow(r2, 2)) ans = 1 / (5 * x + y);
-                    else ans = Math.Abs(1 - x * y);
+                    if (Math.Pow(x, 2) + Math.Pow(x, 2) >= Math.Pow(r1, 2)) ans = Math.Sqrt(Math.Abs(2 * y + x));
+                    else
+                    {
+                        if (y <= 0) ans = Math.Sqrt(Math.Abs(2 * y + x));
+                        else ans = x / Math.Pow(y, 2);
+                    }
                 }
-                else ans = Math.Abs(1 - x * y);
+                else ans = x / Math.Pow(y, 2);
             }
-            else ans = Math.Abs(1 - x * y);
+            else ans = x / Math.Pow(y, 2);
 
             Console.WriteLine(ans);
         }

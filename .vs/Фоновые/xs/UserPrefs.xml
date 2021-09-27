@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{A0CD944F-4BB2-48F1-A755-C2B05DBA9D3D}|Default">
-  <MonoDevelop.Ide.ItemProperties.Фоновые2 FirstBuild="True" />
+﻿<Properties StartupConfiguration="{6FF153F8-1DEB-4ED3-BDFC-F68342641A68}|Default">
+  <MonoDevelop.Ide.ItemProperties.Фоновые2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Фоновые2/Program.cs">
     <Files>
-      <File FileName="Фоновые2/Program.cs" Line="14" Column="1" />
+      <File FileName="Фоновые2/Program.cs" Line="28" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
