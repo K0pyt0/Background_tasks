@@ -1,0 +1,6 @@
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/bin/Debug/Фоновая21.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/bin/Debug/Фоновая21.pdb
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/obj/anycpu/Debug/Фоновая21.csproj.AssemblyReference.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/obj/anycpu/Debug/Фоновая21.csproj.CoreCompileInputs.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/obj/anycpu/Debug/Фоновая21.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая21/obj/anycpu/Debug/Фоновая21.pdb
