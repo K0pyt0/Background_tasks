@@ -1,0 +1,1 @@
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая32/obj/anycpu/Debug/Фоновая32.csproj.CoreCompileInputs.cache
