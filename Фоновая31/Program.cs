@@ -25,8 +25,8 @@ namespace Фоновая31
             num2 = Reverse(num2);
             while (num1.Length != num2.Length)
             {
-                if (num1.Length > num2.Length) num2 += " ";
-                else num1 += " ";
+                if (num1.Length > num2.Length) num2 += "0";
+                else num1 += "0";
             }
         }
 

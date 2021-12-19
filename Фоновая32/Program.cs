@@ -4,10 +4,20 @@ namespace Фоновая32
 {
     class MainClass
     {
-        static int[] InputArr(int N)
+        static int[] InputArr()
         {
             Console.Write("Введите длину массива");
-            //int N = int.Parse(Console.ReadLine());
+            int N = int.Parse(Console.ReadLine());
+            int[] arr = new int[N];
+            for (int i = 0; i < N; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            return arr;
+        }
+
+        static int[] InputArr(int N)
+        {
             int[] arr = new int[N];
             for (int i = 0; i < N; i++)
             {
@@ -26,16 +36,14 @@ namespace Фоновая32
 
         static void SumBtwMinMax()
         {
-            Console.Write("Введите длину массива");
-            int N = int.Parse(Console.ReadLine());
-            int[] arr = InputArr(N);
+            int[] arr = InputArr();
 
 
             int sum = 0;
             Console.WriteLine(sum);
         }
 
-        static int[] Move()
+        static void Move()
         {
             Console.Write("Введите длину массива");
             int N = int.Parse(Console.ReadLine());
@@ -43,9 +51,13 @@ namespace Фоновая32
             int k = int.Parse(Console.ReadLine());
             int[] arr = InputArr(N + k);
 
-            int[] finArr = new int[arr.Length + k];
-            //for (int i = )
-            return finArr;
+            for (int i = N; i >= 0; i--)
+            {
+                arr[i + k] = arr[i];
+            }
+
+            Console.WriteLine(arr);
+            Console.WriteLine();
         }
 
         static void Common()
@@ -74,6 +86,12 @@ namespace Фоновая32
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Введите номер функции, которую вы хотите проверить");
+            string ans = Console.ReadLine();
+            switch(ans)
+            {
+                case 1
+            }
             SumBtwMinMax();
         }
     }
