@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая31", "Фон�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая32", "Фоновая32\Фоновая32.csproj", "{846DB0EA-0EE3-4FCE-8F96-E1A4F6609126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая41", "Фоновая41\Фоновая41.csproj", "{D9900E2E-6368-4D34-9C6C-F016413ABFBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая42", "Фоновая42\Фоновая42.csproj", "{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -39,6 +43,14 @@ Global
 		{846DB0EA-0EE3-4FCE-8F96-E1A4F6609126}.Debug|anycpu.Build.0 = Debug|anycpu
 		{846DB0EA-0EE3-4FCE-8F96-E1A4F6609126}.Release|anycpu.ActiveCfg = Release|anycpu
 		{846DB0EA-0EE3-4FCE-8F96-E1A4F6609126}.Release|anycpu.Build.0 = Release|anycpu
+		{D9900E2E-6368-4D34-9C6C-F016413ABFBE}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{D9900E2E-6368-4D34-9C6C-F016413ABFBE}.Debug|anycpu.Build.0 = Debug|anycpu
+		{D9900E2E-6368-4D34-9C6C-F016413ABFBE}.Release|anycpu.ActiveCfg = Release|anycpu
+		{D9900E2E-6368-4D34-9C6C-F016413ABFBE}.Release|anycpu.Build.0 = Release|anycpu
+		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Debug|anycpu.Build.0 = Debug|anycpu
+		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Release|anycpu.ActiveCfg = Release|anycpu
+		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

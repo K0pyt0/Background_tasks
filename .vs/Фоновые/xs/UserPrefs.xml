@@ -1,21 +1,22 @@
-﻿<Properties StartupConfiguration="{60B84601-FBC5-4C8E-B568-7134CC417B09}|Default">
+﻿<Properties StartupConfiguration="{D9900E2E-6368-4D34-9C6C-F016413ABFBE}|Default">
   <MonoDevelop.Ide.ItemProperties.Фоновая32 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновые2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая31 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая31/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая42/Program.cs">
     <Files>
-      <File FileName="Фоновая31/Program.cs" Line="51" Column="19" />
-      <File FileName="Фоновая32/Program.cs" Line="93" Column="23" />
+      <File FileName="Фоновая42/Program.cs" Line="66" Column="72" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Фоновые" expanded="True">
             <Node name="Фоновая21" expanded="True" />
-            <Node name="Фоновая31" expanded="True">
+            <Node name="Фоновая31" expanded="True" />
+            <Node name="Фоновая32" expanded="True" />
+            <Node name="Фоновая41" expanded="True" />
+            <Node name="Фоновая42" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
-            <Node name="Фоновая32" expanded="True" />
             <Node name="Фоновые1.1" expanded="True" />
             <Node name="Фоновые2" expanded="True" />
           </Node>
@@ -24,6 +25,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Фоновые1.1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Фоновая42 FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Фоновая41 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.ItemProperties.Фоновая21 PreferredExecutionTarget="MonoDevelop.Default" />

@@ -16,19 +16,9 @@ namespace Фоновая32
             return arr;
         }
 
-        static int[] InputArr(int N)
-        {
-            int[] arr = new int[N];
-            for (int i = 0; i < N; i++)
-            {
-                arr[i] = int.Parse(Console.ReadLine());
-            }
-            return arr;
-        }
-
         static void PrintArr(int[] arr)
         {
-            foreach (var i in arr)
+            foreach (int i in arr)
             {
                 Console.Write($"{i} ");
             }
@@ -37,30 +27,52 @@ namespace Фоновая32
         static void SumBtwMinMax()
         {
             int[] arr = InputArr();
-
-
+            int max = arr[0];
+            int min = arr[0];
+            int maxind = 0;
+            int minind = 0;
+            int ind = 0;
             int sum = 0;
+
+            foreach (int i in arr)
+            {
+                if (i > max)
+                {
+                    max = i;
+                    maxind = ind;
+                }
+                if(i <= min)
+                {
+                    min = i;
+                    minind = ind;
+                }
+                ind++;
+            }
+            for (int i = maxind; i < minind; i++) sum += arr[i];
             Console.WriteLine(sum);
         }
 
-        static void Move()
+        static void CyclMove()
         {
-            Console.Write("Введите длину массива");
-            int N = int.Parse(Console.ReadLine());
+            int[] arr = InputArr();
             Console.WriteLine("Введите сдвиг");
             int k = int.Parse(Console.ReadLine());
-            int[] arr = InputArr(N + k);
 
-            for (int i = N; i >= 0; i--)
+            for (int i = 0; i < k; i++)
             {
-                arr[i + k] = arr[i];
+                int swapVar = arr[1];
+                
+                for (int j = 1; j < arr.Length - 1; j++)
+                {
+                    
+                }
             }
 
             Console.WriteLine(arr);
             Console.WriteLine();
         }
 
-        static void Common()
+        static void CommonOnly()
         {
             int[] arr1 = InputArr();
             int[] arr2 = InputArr();
@@ -87,10 +99,23 @@ namespace Фоновая32
         public static void Main(string[] args)
         {
             Console.WriteLine("Введите номер функции, которую вы хотите проверить");
-            string ans = Console.ReadLine();
+            int ans = int.Parse(Console.ReadLine());
             switch(ans)
             {
-                case 1
+                case 1:
+                    SumBtwMinMax();
+                    break;
+                case 2:
+                    CyclMove();
+                    break;
+                case 3:
+                    CommonOnly();
+                    break;
+                case 4:
+                    break;
+                default:
+                    Console.WriteLine("Your input was THE WHAT");
+                    break;
             }
             SumBtwMinMax();
         }
