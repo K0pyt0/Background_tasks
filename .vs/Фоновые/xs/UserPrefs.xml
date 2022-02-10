@@ -1,10 +1,10 @@
-﻿<Properties StartupConfiguration="{D9900E2E-6368-4D34-9C6C-F016413ABFBE}|Default">
+﻿<Properties StartupConfiguration="{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}|Default">
   <MonoDevelop.Ide.ItemProperties.Фоновая32 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновые2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая31 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая42/Program.cs">
     <Files>
-      <File FileName="Фоновая42/Program.cs" Line="66" Column="72" />
+      <File FileName="Фоновая42/Program.cs" Line="81" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,7 +25,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Фоновые1.1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.Фоновая42 FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Фоновая42 FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая41 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />

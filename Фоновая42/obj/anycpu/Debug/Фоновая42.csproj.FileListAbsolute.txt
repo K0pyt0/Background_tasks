@@ -1,0 +1,2 @@
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая42/obj/anycpu/Debug/Фоновая42.csproj.AssemblyReference.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая42/obj/anycpu/Debug/Фоновая42.csproj.CoreCompileInputs.cache
