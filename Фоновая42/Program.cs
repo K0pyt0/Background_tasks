@@ -16,66 +16,63 @@ namespace Фоновая42
 
         
         //task 1
-        static Lesson InputLesson()
+        static Lesson InputLesson(StreamReader rdr)
         {
-            StreamReader rdr = new StreamReader(@"/Users/K0pyt0/Documents/LIT/OOP/SupportFiles/Bcgr42_Input.txt");
             Lesson lesson;
-            Console.WriteLine("Введите номер аудитории");
             lesson.classroom = rdr.ReadLine();
-            Console.WriteLine("Введите имя учителя");
+            //2
+            Console.WriteLine(lesson.classroom);
             lesson.teacher = rdr.ReadLine();
-            Console.WriteLine("Введите номер группы");
+            Console.WriteLine(lesson.teacher);
             lesson.group = rdr.ReadLine();
-            Console.WriteLine("Введите название предмета");
+            Console.WriteLine(lesson.group);
             lesson.subject = rdr.ReadLine();
-            Console.WriteLine("Введите номер урока");
+            Console.WriteLine(lesson.subject);
             lesson.number = int.Parse(rdr.ReadLine());
+            Console.WriteLine(lesson.number);
             return lesson;
         }
 
-        static int GetListPosition(string number)
-        {
-            return int.Parse(number) * 3;
-        }
-
-        
-
-        
-        // task 2
-        static Lesson[] InputGroupLessons(int LessonsAm)
+        static Lesson[] InputGroupLessons(int LessonsAm, StreamReader rdr)
         {
             Lesson[] Timetable = new Lesson[LessonsAm];
-            Lesson OneLesson = InputLesson();
+            Lesson OneLesson;
             
             for(int i = 0; i < LessonsAm; i++)
             {
-                if (Timetable[OneLesson.number].group == "")
+                OneLesson = InputLesson(rdr);
+                if (Timetable[OneLesson.number - 1].group == null)
                 {
-                    Timetable[OneLesson.number] = OneLesson;
+                    Timetable[OneLesson.number - 1] = OneLesson;
                 }
                 else Console.WriteLine($"У класса {OneLesson.group} больше одного {OneLesson.number} урока");
-                OneLesson = InputLesson();
+                Console.WriteLine($"{OneLesson.number} урок класса {OneLesson.group} введён");
+                
             }
             return Timetable;
         }
 
-        static Lesson[,] CreateTimetable(int GroupsAm, int LessonsAm)
+        static Lesson[,] CreateTimetable(int GroupsAm, int LessonsAm, StreamReader rdr)
         {
             Lesson[,] Timetable = new Lesson[GroupsAm, LessonsAm];
             for (int i = 0; i < GroupsAm; i++)
             {
-                for (int j = 0; j < LessonsAm; j++) Timetable[i, j] = InputGroupLessons(LessonsAm)[j];
+                Lesson[] OneGroupTmt = InputGroupLessons(LessonsAm, rdr);
+                for (int j = 0; j < LessonsAm; j++) Timetable[i, j] = OneGroupTmt[j];
             }
             return Timetable;
         }
-        //task 3
+
+
+
+        //task 2
         static void CheckForErrors(Lesson[,] Timetable)
         {
-            for (int i = 1; i < Timetable.GetLength(1); i++)
+            for (int i = 0; i < Timetable.GetLength(1); i++)
             {
                 for (int j = 0; j < Timetable.GetLength(0); j++)
                 {
-                    for (int k = j; k < Timetable.GetLength(0); k++)
+                    for (int k = j + 1; k < Timetable.GetLength(0); k++)
                     {
                         if (Timetable[i, j].classroom == Timetable[i, k].classroom)
                         {
@@ -123,9 +120,9 @@ namespace Фоновая42
             {
                 for (int i = 0; i < Timetable.GetLength(0); i++)
                 {
-                    Console.WriteLine(Timetable[i, lessonNum].classroom);
-                    Console.WriteLine(Timetable[i, lessonNum].subject);
-                    Console.WriteLine(Timetable[i, lessonNum].teacher);
+                    Console.WriteLine(Timetable[i, lessonNum - 1].classroom);
+                    Console.WriteLine(Timetable[i, lessonNum - 1].subject);
+                    Console.WriteLine(Timetable[i, lessonNum - 1].teacher);
                     Console.WriteLine();
                 }
             }
@@ -152,7 +149,7 @@ namespace Фоновая42
             return isThere;
         }
 
-        static string[] SearchForFree(string[,] timetable, int group, int GapLesNum)
+        static string[] SearchForFree(Lesson[,] timetable, int group, int GapLesNum)
         {
             string[] tkdTeachers = new string[timetable.GetLength(0) - 1];
             int count = 0;
@@ -161,8 +158,9 @@ namespace Фоновая42
                 if (i != group)
                 {
                     count++;
-                    tkdTeachers[count] = timetable[i, (GapLesNum - 1) * 3 + 1];
+                    tkdTeachers[count] = timetable[i, GapLesNum].teacher;
                 }
+
             }
 
             string[] tkdCabinets = new string[timetable.GetLength(0) - 1];
@@ -172,16 +170,16 @@ namespace Фоновая42
                 if (i != group)
                 {
                     count++;
-                    tkdCabinets[count] = timetable[i, (GapLesNum - 1) * 3 + 3];
+                    tkdCabinets[count] = timetable[i, GapLesNum].classroom;
                 }
             }
             string[] ansArr = { "null, null" };
             for (int i = 0; i < timetable.GetLength(0); i++)
             {
-                for (int j = 1; j < timetable.GetLength(1); j += 3)
+                for (int j = 0; j < timetable.GetLength(1); j++)
                 {
-                    if (!isInArr(tkdCabinets, timetable[i, j])) ansArr[0] = timetable[i, j];
-                    if (!isInArr(tkdTeachers, timetable[i, j + 2])) ansArr[1] = timetable[i, j + 2];
+                    if (!isInArr(tkdCabinets, timetable[i, j].classroom)) ansArr[0] = timetable[i, j].classroom;
+                    if (!isInArr(tkdTeachers, timetable[i, j].teacher)) ansArr[1] = timetable[i, j].teacher;
                     if (ansArr[0] != "null" && ansArr[1] != "null") break;
                 }
                 if (ansArr[0] != "null" && ansArr[1] != "null") break;
@@ -189,7 +187,7 @@ namespace Фоновая42
             return ansArr;
         }
 
-        static string[,] FillGaps(string[,] timetable)
+        static Lesson[,] FillGaps(Lesson[,] timetable)
         {
             Console.WriteLine("Введите номер класса");
             string group = Console.ReadLine();
@@ -202,11 +200,11 @@ namespace Фоновая42
             {
                 for(int i = 1; i < timetable.GetLength(0); i += 3)
                 {
-                    if(timetable[groupNum, i] == " ")
+                    if(timetable[groupNum, i].teacher == "")
                     {
                         string[] Zams = SearchForFree(timetable, groupNum, (i - 1) / 3 + 1);
-                        timetable[groupNum, i] = Zams[0];
-                        timetable[groupNum, i] = Zams[1];
+                        timetable[groupNum, i].classroom = Zams[0];
+                        timetable[groupNum, i].teacher = Zams[1];
                     }
 
                 }
@@ -263,11 +261,11 @@ namespace Фоновая42
 
             for (int i = 1; i < fTimetable.GetLength(0); i++)
             {
-                for (int j = 1; j < fTimetable.GetLength(1); j += 3)
+                for (int j = 0; j < fTimetable.GetLength(1); j++)
                 {
-                    fTimetable[i, j] = timetable[i - 1, j - 1].group;
-                    fTimetable[i, j + 1] = timetable[i - 1, j - 1].subject;
-                    fTimetable[i, j + 2] = timetable[i - 1, j - 1].teacher;
+                    fTimetable[i, j * 3 + 1] = timetable[i - 1, j].group;
+                    fTimetable[i, j * 3 + 2] = timetable[i - 1, j].subject;
+                    fTimetable[i, j * 3 + 3] = timetable[i - 1, j].teacher;
                 }
             }
             return fTimetable;
@@ -293,7 +291,8 @@ namespace Фоновая42
             StreamReader rdr = new StreamReader(@"/Users/K0pyt0/Documents/LIT/OOP/SupportFiles/Bcgr42_Input.txt");
             int GroupsAmount = int.Parse(rdr.ReadLine());
             int LessonsAmount = int.Parse(rdr.ReadLine());
-            Lesson[,] timetable = CreateTimetable(GroupsAmount, LessonsAmount);
+            Lesson[,] timetable = CreateTimetable(GroupsAmount, LessonsAmount, rdr);
+            PrintTimetable(timetable);
             CheckForErrors(timetable);
             Console.WriteLine("Как вы хотите вывести расписание? \nПо группе – 1 \nПо уроку – 2");
             switch (int.Parse(Console.ReadLine()))
@@ -305,7 +304,8 @@ namespace Фоновая42
                     PrintByLesson(timetable);
                     break;
             }
-            PrintTimetable(timetable);
+            PrintTimetable(FillGaps(timetable));
+            
         }
     }
 }
