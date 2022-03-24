@@ -1,0 +1,5 @@
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая52/bin/Debug/Фоновая52.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая52/bin/Debug/Фоновая52.pdb
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая52/obj/anycpu/Debug/Фоновая52.csproj.CoreCompileInputs.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая52/obj/anycpu/Debug/Фоновая52.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновая52/obj/anycpu/Debug/Фоновая52.pdb

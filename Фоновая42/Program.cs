@@ -189,7 +189,7 @@ namespace Фоновая42
 
         static Lesson[,] FillGaps(Lesson[,] timetable)
         {
-            Console.WriteLine("Введите номер класса");
+            Console.WriteLine("Введите номер группы для заполнения пробелов");
             string group = Console.ReadLine();
             int groupNum = -1;
             for (int i = 0; i < timetable.GetLength(0); i++)
@@ -202,9 +202,9 @@ namespace Фоновая42
                 {
                     if(timetable[groupNum, i].teacher == "")
                     {
-                        string[] Zams = SearchForFree(timetable, groupNum, (i - 1) / 3 + 1);
-                        timetable[groupNum, i].classroom = Zams[0];
-                        timetable[groupNum, i].teacher = Zams[1];
+                        string[] zams = SearchForFree(timetable, groupNum, (i - 1) / 3 + 1);
+                        timetable[groupNum, i].classroom = zams[0];
+                        timetable[groupNum, i].teacher = zams[1];
                     }
 
                 }
@@ -247,7 +247,7 @@ namespace Фоновая42
 
         static string[,] CreateFinalTmt(Lesson[,] timetable)
         {
-            SortTimetable(timetable);
+            //SortTimetable(timetable);
             string[,] fTimetable = new string[timetable.GetLength(0) + 1, timetable.GetLength(1) * 3 + 1];
             fTimetable[0, 0] = "Урок";
             for (int i = 1; i < timetable.GetLength(1); i += 3)
@@ -259,9 +259,9 @@ namespace Фоновая42
                 fTimetable[i, 0] = timetable[i - 1, 0].group;
             }
 
-            for (int i = 1; i < fTimetable.GetLength(0); i++)
+            for (int i = 1; i < timetable.GetLength(0); i++)
             {
-                for (int j = 0; j < fTimetable.GetLength(1); j++)
+                for (int j = 0; j < timetable.GetLength(1); j++)
                 {
                     fTimetable[i, j * 3 + 1] = timetable[i - 1, j].group;
                     fTimetable[i, j * 3 + 2] = timetable[i - 1, j].subject;
@@ -274,9 +274,9 @@ namespace Фоновая42
         static void PrintTimetable(Lesson[,] timetable)
         {
             string[,] fTimetable = CreateFinalTmt(timetable);
-            for (int i = 0; i < fTimetable.GetLength(0); i++)
+            for (int i = 0; i < fTimetable.GetLength(1); i++)
             {
-                for (int j = 0; j < fTimetable.GetLength(1); j++)
+                for (int j = 0; j < fTimetable.GetLength(0); j++)
                 {
                     Console.Write($"{fTimetable[j, i]} \t");
                 }
@@ -305,7 +305,7 @@ namespace Фоновая42
                     break;
             }
             PrintTimetable(FillGaps(timetable));
-            
+            Console.ReadKey();
         }
     }
 }

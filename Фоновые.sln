@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая41", "Фон�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая42", "Фоновая42\Фоновая42.csproj", "{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая52", "Фоновая52\Фоновая52.csproj", "{47CF42CE-3182-461F-B663-5E0FF36B0DD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -51,6 +53,10 @@ Global
 		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Debug|anycpu.Build.0 = Debug|anycpu
 		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Release|anycpu.ActiveCfg = Release|anycpu
 		{64FDFB3D-7C98-42DB-8CAE-86A7263D4EBD}.Release|anycpu.Build.0 = Release|anycpu
+		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Debug|anycpu.Build.0 = Debug|anycpu
+		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Release|anycpu.ActiveCfg = Release|anycpu
+		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
