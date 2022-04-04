@@ -15,11 +15,10 @@ namespace Фоновая52
         {
             month = Months.January;
             day = 0;
-            temperature = new int[7, Lengths[(int)month] / 7 * 2 + 2];
+            temperature = new int[7, Lengths[(int)month] / 7 + 1];
             for (int i = 0; i <= Lengths[(int)month]; i++)
             {
-                temperature[i % 7, i / 7 * 2] = i + 1;
-                temperature[i % 7, i / 7 * 2 + 1] = GnrRnd(-20);
+                temperature[i % 7, i / 7] = GnrRnd(-20);
             }
         }
 
@@ -27,21 +26,27 @@ namespace Фоновая52
         {
             this.month = month;
             this.day = day;
-            temperature = new int[7, (Lengths[(int)month] + day) / 7 * 2 + 2];
-            for (int i = day; i <= Lengths[(int)month] + day; i++)
+            temperature = new int[7, (Lengths[(int)month] + day) / 7 + 1];
+            for (int i = 0; i < day; i++)
             {
-                temperature[i % 7, i / 7 * 2] = i + 1 - day;
-                temperature[i % 7, i / 7 * 2 + 1] = GnrRnd(40 - 10 * Math.Abs(7 - (int)month));
+                temperature[i, 0] = NoData;
+            }
+            for (int i = day; i < Lengths[(int)month] + day; i++)
+            {
+                temperature[i % 7, i / 7] = GnrRnd(40 - 10 * Math.Abs(7 - (int)month));
             }
         }
 
         void MoveTable(int day)
         {
-            int[,] tmpTemperature = new int[(Lengths[(int)month] + day) / 7 * 2 + 2, 7];
+            int[,] tmpTemperature = new int[7, (Lengths[(int)month] + day) / 7 + 1];
+            for (int i = 0; i < day; i++)
+            {
+                tmpTemperature[i, 0] = NoData;
+            }
             for (int i = day; i < Lengths[(int)month] + day; i++)
             {
-                tmpTemperature[i % 7, i / 7 * 2] = i + 1 - day;
-                tmpTemperature[i % 7, i / 7 * 2 + 1] = temperature[(i + this.day - day) % 7, (i + this.day - day) / 7 * 2 + 1];
+                tmpTemperature[i % 7, i / 7] = temperature[(i + this.day - day) % 7, (i + this.day - day) / 7];
             }
             temperature = tmpTemperature;
         }
@@ -57,15 +62,15 @@ namespace Фоновая52
                 {
                     Console.WriteLine("Введите день начала месяца");
                     int day = int.Parse(Console.ReadLine());
-                    if (day > 7) throw new Exception("в неделе не может быть больше 7 дней.");
+                    if (day > 7 && day > 0) throw new Exception("дня недели с таким номером не существует");
 
                     Console.WriteLine("Введите номер месяца");
                     int num = int.Parse(Console.ReadLine()) - 1;
                     Months month;
-                    if (num < 12) month = (Months)num - 1;
-                    else throw new Exception("в году не может быть больше 12 месяцев.");
+                    if (num < 12 && num > -1) month = (Months)num;
+                    else throw new Exception("месяца с таким номером не существует");
 
-                    mtrx = new matrixWeather(day, month);
+                    mtrx = new matrixWeather(day - 1, month);
                 }
                 catch (Exception error)
                 {
@@ -91,15 +96,17 @@ namespace Фоновая52
             for (int i = 0; i < Lengths[(int)month] + day; i++)
             {
                 if (i % 7 == 0) Console.WriteLine();
-                Console.Write(temperature[i % 7, (i / 7) * 2]);
-                Console.Write($" {temperature[i % 7, (i / 7) * 2 + 1]}\t");
+                Console.Write(i + 1 - day);
+                if (temperature[i % 7, i / 7] != -1000) Console.Write($" {temperature[i % 7, i / 7]}\t");
+                else Console.Write(" ND\t");
             }
+            Console.WriteLine();
         }
 
         public int bgstJump()
         {
             int jump = 0;
-            for (int i = day; i < Lengths[(int)month]; i++) if (Math.Abs(temperature[i % 7, (i / 7) * 2 + 1] - temperature[(i + 1) % 7, ((i + 1) / 7) * 2 + 1]) > jump) jump = Math.Abs(temperature[i % 7, (i / 7) * 2 + 1] - temperature[(i + 1) % 7, ((i + 1) / 7) * 2 + 1]);
+            for (int i = day; i < Lengths[(int)month] + day; i++) if (Math.Abs(temperature[i % 7, i / 7] - temperature[(i + 1) % 7, (i + 1) / 7]) > jump) jump = Math.Abs(temperature[i % 7, i / 7] - temperature[(i + 1) % 7, (i + 1) / 7]);
             return jump;
         }
 
@@ -108,13 +115,13 @@ namespace Фоновая52
             int jump = 0;
             dayNum = 0;
             bgnTmp = 0;
-            for (int i = day; i < Lengths[(int)month]; i++)
+            for (int i = day; i < Lengths[(int)month] + day - 1; i++)
             {
-                if (Math.Abs(temperature[i % 7, (i / 7) * 2 + 1] - temperature[(i + 1) % 7, ((i + 1) / 7) * 2 + 1]) > jump)
+                if (Math.Abs(temperature[i % 7, i / 7] - temperature[(i + 1) % 7, (i + 1) / 7]) > jump)
                 {
-                    jump = Math.Abs(temperature[i % 7, (i / 7) * 2 + 1] - temperature[(i + 1) % 7, ((i + 1) / 7) * 2 + 1]);
-                    dayNum = i + 1;
-                    bgnTmp = temperature[i % 7, (i / 7) * 2 + 1];
+                    jump = Math.Abs(temperature[i % 7, i / 7] - temperature[(i + 1) % 7, (i + 1) / 7]);
+                    dayNum = i + 1 - day;
+                    bgnTmp = temperature[i % 7, i / 7];
                 }
             }
             return jump;
@@ -127,10 +134,10 @@ namespace Фоновая52
             {
                 try
                 {
-                    if (value < 8)
+                    if (value <= 7)
                     {
                         MoveTable(value - 1);
-                        this.day = value - 1;
+                        day = value - 1;
 
                     }
                     else throw new Exception("в неделе не может быть больше 7 дней.");
@@ -142,9 +149,19 @@ namespace Фоновая52
             }
         }
 
+        public int[,] temperMtrx
+        {
+            get { return temperature; }
+        }
+
         public string mtrxMonth
         {
-            get { return month.ToString(); ; }
+            get { return month.ToString(); }
+        }
+
+        public int mtrxMonthNum
+        {
+            get { return (int)month; }
         }
 
         public int DaysNumber
@@ -160,10 +177,52 @@ namespace Фоновая52
                 for (int i = day; i <= Lengths[(int)month] + day; i++)
                 {
 
-                    if (temperature[i % 7, i / 7 * 2 + 1] == 0) count++;
+                    if (temperature[i % 7, i / 7] == 0) count++;
                 }
                 return count;
             }
+        }
+
+        public static bool operator >(matrixWeather obj1, matrixWeather obj2)
+        {
+            return obj1.mtrxMonthNum > obj2.mtrxMonthNum;
+        }
+
+        public static bool operator <(matrixWeather obj1, matrixWeather obj2)
+        {
+            return obj1.mtrxMonthNum < obj2.mtrxMonthNum;
+        }
+
+        public static matrixWeather operator ++(matrixWeather obj)
+        {
+            obj.beginningDay++;
+            return obj;
+        }
+
+        public static matrixWeather operator --(matrixWeather obj)
+        {
+            obj.beginningDay--;
+            return obj;
+        }
+
+        public static bool operator true(matrixWeather obj)
+        {
+            bool wasLower = false;
+            for (int i = obj.beginningDay - 1; i < Lengths[obj.mtrxMonthNum] + obj.beginningDay - 1; i++)
+            {
+                if (obj.temperMtrx[i % 7, i / 7] < 0) wasLower = true;
+            }
+            return !wasLower;
+        }
+
+        public static bool operator false(matrixWeather obj)
+        {
+            bool wasHigher = false;
+            for (int i = obj.beginningDay - 1; i < Lengths[obj.mtrxMonthNum] + obj.beginningDay - 1; i++)
+            {
+                if (obj.temperMtrx[i % 7, i / 7] < 0) wasHigher = true;
+            }
+            return !wasHigher;
         }
 
         public static int NoData
@@ -193,8 +252,8 @@ namespace Фоновая52
 6. Вывести на экран кол-во дней в месяце с температурой в 0 градусов
 7. Вывести на экран максимальный скачок температуры за месяц
 8. Вывести на экран максимальный скачок температуры за месяц с номером дня и температурой до скачка
-9 - бесконечность. Закрыть программу");
-            switch(Console.ReadLine())
+9 - что угодно. Закрыть программу");
+            switch (Console.ReadLine())
             {
                 case "1":
                     Console.WriteLine(mtrx.beginningDay + 1);
@@ -204,6 +263,7 @@ namespace Фоновая52
                     Console.WriteLine("Введите номер нового дня начала месяца");
                     int day = int.Parse(Console.ReadLine());
                     mtrx.beginningDay = day;
+                    mtrx.PrintMtrx();
                     break;
 
                 case "3":
@@ -219,7 +279,7 @@ namespace Фоновая52
                     break;
 
                 case "6":
-                    Console.WriteLine(mtrx.ZeroDaysNumber);
+                    Console.WriteLine($"с температурой в 0 градусов{mtrx.ZeroDaysNumber}");
                     break;
 
                 case "7":

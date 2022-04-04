@@ -4,20 +4,20 @@
   <MonoDevelop.Ide.ItemProperties.Фоновая31 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая52/Program.cs">
     <Files>
-      <File FileName="Фоновая52/Program.cs" Line="44" Column="113" />
+      <File FileName="Фоновая52/Program.cs" Line="16" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Фоновые" expanded="True">
             <Node name="Фоновая21" expanded="True" />
-            <Node name="Фоновая31" expanded="True" />
+            <Node name="Фоновая31" expanded="True">
+              <Node name="Properties" selected="True" />
+            </Node>
             <Node name="Фоновая32" expanded="True" />
             <Node name="Фоновая41" expanded="True" />
             <Node name="Фоновая42" expanded="True" />
-            <Node name="Фоновая52" expanded="True">
-              <Node name="Program.cs" selected="True" />
-            </Node>
+            <Node name="Фоновая52" expanded="True" />
             <Node name="Фоновые1.1" expanded="True" />
             <Node name="Фоновые2" expanded="True" />
           </Node>
