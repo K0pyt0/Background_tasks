@@ -1,0 +1,6 @@
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/bin/Debug/Фоновые61.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/bin/Debug/Фоновые61.pdb
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/obj/anycpu/Debug/Фоновые61.csproj.AssemblyReference.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/obj/anycpu/Debug/Фоновые61.csproj.CoreCompileInputs.cache
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/obj/anycpu/Debug/Фоновые61.exe
+/Users/K0pyt0/Documents/LIT/OOP/Background_tasks/Фоновые61/obj/anycpu/Debug/Фоновые61.pdb

@@ -37,6 +37,21 @@ namespace Фоновая52
             }
         }
 
+        matrixWeather(int day, int[]tArr)
+        {
+            month = Months.January;
+            this.day = day;
+            temperature = new int[7, (31 + day) / 7 + 1];
+            for (int i = 0; i < day; i++)
+            {
+                temperature[i, 0] = NoData;
+            }
+            for (int i = day; i < 31 + day; i++)
+            {
+                temperature[i % 7, i / 7] = tArr[i - day];
+            }
+        }
+
         void MoveTable(int day)
         {
             int[,] tmpTemperature = new int[7, (Lengths[(int)month] + day) / 7 + 1];
@@ -62,7 +77,7 @@ namespace Фоновая52
                 {
                     Console.WriteLine("Введите день начала месяца");
                     int day = int.Parse(Console.ReadLine());
-                    if (day > 7 && day > 0) throw new Exception("дня недели с таким номером не существует");
+                    if (day > 7 || day <= 0) throw new Exception("дня недели с таким номером не существует");
 
                     Console.WriteLine("Введите номер месяца");
                     int num = int.Parse(Console.ReadLine()) - 1;
@@ -83,6 +98,40 @@ namespace Фоновая52
                 mtrx = new matrixWeather();
                 Console.WriteLine("Матрица создана. И таблетки нет");
             }
+            return mtrx;
+        }
+
+        static public matrixWeather CreateSpecialedMatrix()
+        {
+            int day = 0;
+            try
+            {
+                Console.WriteLine("Введите день начала месяца");
+                day = int.Parse(Console.ReadLine()) - 1;
+                if (day > 6 || day < 0) throw new Exception("дня недели с таким номером не существует");
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Кто-то опять накосячил: возникла ошибка: " + error.Message);
+            }
+            Console.WriteLine("Вы сами знали, на что шли.");
+            int[] tArr = new int[31];
+            for(int i = 1; i < 32; i++)
+            {
+                Console.WriteLine($"Введите температуру {i}-ого дня месяца");
+                try
+                {
+                    int tmp = int.Parse(Console.ReadLine());
+                    if (tmp < -20 || tmp > 0) throw new Exception("В юном месяце апреле в старом парке валил снег. Так, стоп");
+                    else tArr[i - 1] = tmp;
+                }
+                catch(Exception error)
+                {
+                    Console.WriteLine(error.Message);
+                    tArr[i - 1] = GnrRnd(-20);
+                }
+            }
+            matrixWeather mtrx = new matrixWeather(day, tArr);
             return mtrx;
         }
 
@@ -183,6 +232,38 @@ namespace Фоновая52
             }
         }
 
+        public int this [int x, int y]
+        {
+            get
+            {
+                try
+                {
+                    if (temperature[x - 1, y - 1] != -1000 && (x - 1) * 7 + y - 1 < Lengths[(int)month] + day)
+                        return temperature[x - 1, y - 1];
+                    else throw new Exception();
+                }
+                catch
+                {
+                    Console.WriteLine("Такого дня не существует");
+                    return -1000;
+                }
+            }
+            set
+            {
+                try
+                {
+                    if (value > (40 - 10 * Math.Abs(7 - (int)month)) && value < 60 - 10 * Math.Abs(7 - (int)month))
+                        if (temperature[x - 1, y - 1] != -1000 && (x - 1) * 7 + y - 1 < Lengths[(int)month] + day) temperature[x - 1, y - 1] = value;
+                        else throw new Exception("Такого дня не существует");
+                    else throw new Exception($"В {month} не может быть температуры {value}");
+                }
+                catch(Exception error)
+                {
+                    Console.WriteLine(error.Message);
+                }
+            }
+        }
+
         public static bool operator >(matrixWeather obj1, matrixWeather obj2)
         {
             return obj1.mtrxMonthNum > obj2.mtrxMonthNum;
@@ -218,12 +299,25 @@ namespace Фоновая52
         public static bool operator false(matrixWeather obj)
         {
             bool wasHigher = false;
+
             for (int i = obj.beginningDay - 1; i < Lengths[obj.mtrxMonthNum] + obj.beginningDay - 1; i++)
             {
                 if (obj.temperMtrx[i % 7, i / 7] < 0) wasHigher = true;
             }
             return !wasHigher;
         }
+
+        public static bool operator &(matrixWeather obj1, matrixWeather obj2)
+        {
+            bool isThereDifference = false;
+            for (int i = 0; i < 7; i++)
+            {
+                if (obj1.temperMtrx[i, 0] != obj2.temperMtrx[i, 0]) isThereDifference = true;
+            }
+            return !isThereDifference;
+        }
+
+
 
         public static int NoData
         {
@@ -296,7 +390,66 @@ namespace Фоновая52
                     Console.WriteLine("Ты добрый человек. Спасибо");
                     break;
             }
-            Console.ReadKey();
+
+
+
+            matrixWeather mtrx2 = matrixWeather.CreateMatrix();
+            mtrx2.PrintMtrx();
+            Console.WriteLine(@"Какую задачу вы хотите испытать?
+1. Сравнить две матрицы 
+2. Сдвинуть первую матрицу на день вправо
+3. Сдвинуть первую матрицу на день влево
+4. Проверить, опускалась ли темепература в первой матрице ниже 0 градусов
+5. Проверить, совпадают ли данные первой недели в двух матрицах
+6. Получить значение температуры за указанный день
+7. Изменить значение температуры за указанный день
+8 - что угодно. Закрыть программу");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    if (mtrx > mtrx2) Console.WriteLine("Первая матрица больше второй");
+                    else if (mtrx < mtrx2) Console.WriteLine("Первая матрица меньше второй");
+                    else Console.WriteLine("Матрицы равны");
+                    break;
+
+                case "2":
+                    mtrx++;
+                    mtrx.PrintMtrx();
+                    break;
+
+                case "3":
+                    mtrx--;
+                    mtrx.PrintMtrx();
+                    break;
+
+                case "4":
+                    if (mtrx) Console.WriteLine("Температура в этот месяц не опускалась ниже нуля");
+                    else Console.WriteLine("Температура в этот месяц опускалась ниже нуля");
+                    break;
+
+                case "5":
+                    mtrx = matrixWeather.CreateSpecialedMatrix();
+                    mtrx2 = matrixWeather.CreateSpecialedMatrix();
+                    if (mtrx & mtrx2) Console.WriteLine("Данные первой недели совпадают");
+                    else Console.WriteLine("Данные первой недели не совпадают");
+                    break;
+
+                case "6":
+                    int x = int.Parse(Console.ReadLine());
+                    int y = int.Parse(Console.ReadLine());
+                    Console.WriteLine(mtrx[x, y]);
+                    break;
+
+                case "7":
+                    x = int.Parse(Console.ReadLine());
+                    y = int.Parse(Console.ReadLine());
+                    mtrx[x, y] = int.Parse(Console.ReadLine());
+                    break;
+
+                default:
+                    Console.WriteLine("Ты добрый человек. Спасибо");
+                    break;
+            }
         }
     }
 }

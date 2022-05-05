@@ -1,25 +1,27 @@
-﻿<Properties StartupConfiguration="{47CF42CE-3182-461F-B663-5E0FF36B0DD0}|Default">
+﻿<Properties StartupConfiguration="{929D1CE9-F11C-44F6-9269-79E718739B94}|Default">
   <MonoDevelop.Ide.ItemProperties.Фоновая32 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновые2 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая31 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая52/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Фоновая62/Program.cs">
     <Files>
-      <File FileName="Фоновая52/Program.cs" Line="16" Column="36" />
+      <File FileName="Фоновая62/Program.cs" Line="332" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Фоновые" expanded="True">
             <Node name="Фоновая21" expanded="True" />
-            <Node name="Фоновая31" expanded="True">
-              <Node name="Properties" selected="True" />
-            </Node>
+            <Node name="Фоновая31" expanded="True" />
             <Node name="Фоновая32" expanded="True" />
             <Node name="Фоновая41" expanded="True" />
             <Node name="Фоновая42" expanded="True" />
             <Node name="Фоновая52" expanded="True" />
+            <Node name="Фоновая62" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
             <Node name="Фоновые1.1" expanded="True" />
             <Node name="Фоновые2" expanded="True" />
+            <Node name="Фоновые61" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -27,6 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Фоновые1.1 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая42 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Фоновая62 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Фоновая41 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Фоновая52 PreferredExecutionTarget="MonoDevelop.Default" />
@@ -36,4 +39,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Фоновые61 PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

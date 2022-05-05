@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая42", "Фон�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая52", "Фоновая52\Фоновая52.csproj", "{47CF42CE-3182-461F-B663-5E0FF36B0DD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновые61", "Фоновые61\Фоновые61.csproj", "{7DD6DAF8-FE35-4E8B-8DD7-31CCB44D9D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая62", "Фоновая62\Фоновая62.csproj", "{929D1CE9-F11C-44F6-9269-79E718739B94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -57,6 +61,14 @@ Global
 		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Debug|anycpu.Build.0 = Debug|anycpu
 		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Release|anycpu.ActiveCfg = Release|anycpu
 		{47CF42CE-3182-461F-B663-5E0FF36B0DD0}.Release|anycpu.Build.0 = Release|anycpu
+		{7DD6DAF8-FE35-4E8B-8DD7-31CCB44D9D74}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{7DD6DAF8-FE35-4E8B-8DD7-31CCB44D9D74}.Debug|anycpu.Build.0 = Debug|anycpu
+		{7DD6DAF8-FE35-4E8B-8DD7-31CCB44D9D74}.Release|anycpu.ActiveCfg = Release|anycpu
+		{7DD6DAF8-FE35-4E8B-8DD7-31CCB44D9D74}.Release|anycpu.Build.0 = Release|anycpu
+		{929D1CE9-F11C-44F6-9269-79E718739B94}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{929D1CE9-F11C-44F6-9269-79E718739B94}.Debug|anycpu.Build.0 = Debug|anycpu
+		{929D1CE9-F11C-44F6-9269-79E718739B94}.Release|anycpu.ActiveCfg = Release|anycpu
+		{929D1CE9-F11C-44F6-9269-79E718739B94}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
